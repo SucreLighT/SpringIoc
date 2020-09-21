@@ -2,13 +2,10 @@ package cn.sucrelt.test;
 
 import cn.sucrelt.domain.Account;
 import cn.sucrelt.service.AccountService;
-import config.JdbcConfig;
 import config.SpringConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -16,7 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * @description:使用JUnit单元测试测试配置内容
+ * @description: 使用JUnit单元测试测试配置内容
  * @author: sucre
  * @date: 2020/09/19
  * @time: 16:39
