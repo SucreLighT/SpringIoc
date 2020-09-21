@@ -5,8 +5,12 @@ import cn.sucrelt.service.AccountService;
 import config.JdbcConfig;
 import config.SpringConfiguration;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 import java.util.List;
@@ -17,13 +21,19 @@ import java.util.List;
  * @date: 2020/09/19
  * @time: 16:39
  */
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = SpringConfiguration.class)
 public class AccountServiceTest {
+
+    @Autowired
+    private AccountService accountService;
 
     // ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
 
     //使用注解开发
-    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-    AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+    // ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+    // AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
 
     @Test
     public void testFindAllAccount() {
