@@ -5,6 +5,8 @@ import cn.sucrelt.domain.Account;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,13 +16,16 @@ import java.util.List;
  * @date: 2020/09/19
  * @time: 16:22
  */
+
+@Repository(value = "accountDao")
 public class AccountDaoImpl implements AccountDao {
 
-    public void setRunner(QueryRunner runner) {
-        this.runner = runner;
-    }
-
+    @Autowired
     private QueryRunner runner;
+
+    // public void setRunner(QueryRunner runner) {
+    //     this.runner = runner;
+    // }
 
     public List<Account> findAllAccount() {
         try {

@@ -2,9 +2,12 @@ package cn.sucrelt.test;
 
 import cn.sucrelt.domain.Account;
 import cn.sucrelt.service.AccountService;
+import config.JdbcConfig;
+import config.SpringConfiguration;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 
 import java.util.List;
 
@@ -16,7 +19,10 @@ import java.util.List;
  */
 public class AccountServiceTest {
 
-    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+    // ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+
+    //使用注解开发
+    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
     AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
 
     @Test
@@ -52,7 +58,7 @@ public class AccountServiceTest {
 
     @Test
     public void testDeleteAccount() {
-        accountService.deleteAccount(4);
+        accountService.deleteAccount(6);
     }
 
 }
